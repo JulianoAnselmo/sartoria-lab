@@ -1,0 +1,13 @@
+@import './fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply bg-papel text-carvao font-sans antialiased; }
+  body { @apply min-h-screen; }
+  h1, h2, h3 { @apply font-display tracking-tightest; }
+  a { @apply underline-offset-2; }
+  ::selection { @apply bg-linha text-papel; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-linha; }
+}
