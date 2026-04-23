@@ -1,9 +1,44 @@
 ---
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Pilar from '../components/Pilar.astro';
+import { getCollection } from 'astro:content';
+import CaseCard from '../components/CaseCard.astro';
+
+const destaques = (await getCollection('cases', ({ data }) => data.destaque)).slice(0, 3);
 ---
 <Base title="Tecnologia sob medida">
-  <section class="max-w-5xl mx-auto px-6 py-24 text-center">
-    <p class="text-[10px] tracking-[0.3em] uppercase text-carvao/60">Est. 2026</p>
-    <h1 class="mt-6 text-5xl md:text-7xl leading-[0.95]">Tecnologia<br/><em class="font-medium">sob medida</em>.</h1>
+  <Hero
+    label="Est. 2026"
+    title="Tecnologia"
+    titleItalic="sob medida"
+    subtitle="Sites, apps e sistemas cortados pro seu negócio — não pro mercado em geral."
+    cta={{ href: '/medida', label: 'Agende uma medida' }}
+  />
+
+  <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
+    <Pilar numero="· 01" titulo="Sob medida real">
+      Zero template. Todo projeto começa do corte: entender o negócio, tirar as medidas, cortar a arquitetura.
+    </Pilar>
+    <Pilar numero="· 02" titulo="Ofício + laboratório">
+      Disciplina de alfaiate + mentalidade de lab. Tradição e engenharia moderna no mesmo lugar.
+    </Pilar>
+    <Pilar numero="· 03" titulo="Relação direta">
+      Você fala com quem corta, costura e entrega. Sem camadas, sem handoff.
+    </Pilar>
+  </section>
+
+  {destaques.length > 0 && (
+    <section class="max-w-5xl mx-auto px-6 py-16">
+      <h2 class="text-3xl mb-10">Peças em destaque</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {destaques.map((c) => <CaseCard entry={c} />)}
+      </div>
+    </section>
+  )}
+
+  <section class="max-w-3xl mx-auto px-6 py-24 text-center border-t border-giz">
+    <h2 class="text-4xl">Pronto pra tirar as medidas?</h2>
+    <a href="/medida" class="inline-block mt-6 px-6 py-3 border border-carvao text-[11px] tracking-[0.2em] uppercase no-underline">Agende uma medida →</a>
   </section>
 </Base>
