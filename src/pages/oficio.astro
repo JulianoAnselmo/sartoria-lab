@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import MetodoEtapa from '../components/MetodoEtapa.astro';
+---
+<Base title="Ofício">
+  <Hero label="O Ofício" title="Medida" titleItalic="antes do corte" />
+
+  <section class="max-w-3xl mx-auto px-6 py-12">
+    <p class="text-lg leading-relaxed">
+      Alfaiataria existe porque roupa de prateleira não cai bem em todo mundo. Software é igual. A Sartoria Lab nasceu dessa premissa: cada negócio tem medidas próprias, e tecnologia precisa ser cortada pra caber nelas.
+    </p>
+    <p class="mt-6 text-lg leading-relaxed">
+      A gente começa medindo. Depois corta. Depois prova. Depois entrega — com acabamento.
+    </p>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 py-12">
+    <h2 class="text-3xl mb-4">Método</h2>
+    <MetodoEtapa numero="· 01" nome="Medida">Entendemos o negócio antes de escrever uma linha.</MetodoEtapa>
+    <MetodoEtapa numero="· 02" nome="Corte">Desenhamos a arquitetura: o que vai dentro, o que fica de fora.</MetodoEtapa>
+    <MetodoEtapa numero="· 03" nome="Alinhavo">Primeiro protótipo funcional, pra você ver caindo.</MetodoEtapa>
+    <MetodoEtapa numero="· 04" nome="Prova">Você veste, critica, a gente ajusta.</MetodoEtapa>
+    <MetodoEtapa numero="· 05" nome="Costura">Desenvolvimento completo, com acabamento.</MetodoEtapa>
+    <MetodoEtapa numero="· 06" nome="Ajustes">Suporte e evolução depois da entrega.</MetodoEtapa>
+  </section>
+</Base>
