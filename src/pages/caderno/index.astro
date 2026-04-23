@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('caderno')).sort((a, b) => b.data.data.valueOf() - a.data.data.valueOf());
+---
+<Base title="Caderno">
+  <section class="max-w-3xl mx-auto px-6 py-20">
+    <h1 class="text-5xl">Caderno</h1>
+    <p class="mt-4 text-carvao/70">Notas técnicas, estudos, bastidores.</p>
+    <div class="mt-12 space-y-8">
+      {posts.length === 0 && <p class="text-carvao/60">Primeiras notas a caminho.</p>}
+      {posts.map((p) => (
+        <a href={`/caderno/${p.id}`} class="block border-t border-giz pt-6 no-underline">
+          <div class="font-mono text-[10px] tracking-[0.15em] uppercase text-carvao/60">{p.data.data.toISOString().slice(0, 10)}</div>
+          <h2 class="mt-2 text-2xl">{p.data.titulo}</h2>
+          <p class="mt-2 text-sm text-carvao/70">{p.data.resumo}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
