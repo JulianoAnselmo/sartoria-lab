@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import MonoMeta from '../../components/MonoMeta.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('cases');
+  return cases.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { titulo, cliente, categoria, ano, stack, resumo } = entry.data;
+---
+<Base title={titulo} description={resumo}>
+  <article class="max-w-3xl mx-auto px-6 py-20">
+    <MonoMeta items={[categoria, String(ano), cliente]} />
+    <h1 class="mt-4 text-5xl">{titulo}</h1>
+    <p class="mt-6 text-lg text-carvao/80">{resumo}</p>
+    <div class="mt-4 text-sm text-carvao/60">Stack: {stack.join(' · ')}</div>
+    <div class="prose prose-neutral mt-12 max-w-none"><Content /></div>
+  </article>
+</Base>

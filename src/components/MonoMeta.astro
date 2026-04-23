@@ -1,0 +1,7 @@
+---
+interface Props { items: string[]; }
+const { items } = Astro.props;
+---
+<div class="font-mono text-[10px] tracking-[0.15em] uppercase text-carvao/70 flex gap-4 flex-wrap">
+  {items.map((i) => <span>{i}</span>)}
+</div>
