@@ -1,0 +1,22 @@
+---
+const formspreeEndpoint = 'https://formspree.io/f/REPLACE_ME';
+---
+<form action={formspreeEndpoint} method="POST" class="space-y-6 max-w-xl">
+  <label class="block">
+    <span class="text-[10px] tracking-[0.2em] uppercase text-carvao/60">Nome</span>
+    <input name="nome" required minlength="2" class="mt-1 w-full border-b border-carvao bg-transparent py-2 focus:outline-none focus:border-linha" />
+  </label>
+  <label class="block">
+    <span class="text-[10px] tracking-[0.2em] uppercase text-carvao/60">Email</span>
+    <input type="email" name="email" required class="mt-1 w-full border-b border-carvao bg-transparent py-2 focus:outline-none focus:border-linha" />
+  </label>
+  <label class="block">
+    <span class="text-[10px] tracking-[0.2em] uppercase text-carvao/60">Empresa (opcional)</span>
+    <input name="empresa" class="mt-1 w-full border-b border-carvao bg-transparent py-2 focus:outline-none focus:border-linha" />
+  </label>
+  <label class="block">
+    <span class="text-[10px] tracking-[0.2em] uppercase text-carvao/60">Me conta do projeto</span>
+    <textarea name="mensagem" required minlength="10" rows="6" class="mt-1 w-full border border-giz bg-transparent p-3 focus:outline-none focus:border-linha"></textarea>
+  </label>
+  <button type="submit" class="px-6 py-3 bg-carvao text-papel text-[11px] tracking-[0.2em] uppercase">Enviar briefing</button>
+</form>
