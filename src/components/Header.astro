@@ -1,0 +1,25 @@
+---
+const links = [
+  { href: '/oficio', label: 'Ofício' },
+  { href: '/pecas', label: 'Peças' },
+  { href: '/caderno', label: 'Caderno' },
+  { href: '/medida', label: 'Medida' },
+];
+---
+<header class="border-b border-giz">
+  <nav class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 no-underline">
+      <svg width="28" height="22" viewBox="0 0 70 56" fill="none" aria-hidden="true">
+        <path d="M18 14 L8 28 L18 42" stroke="#1A1A1A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M52 14 L62 28 L52 42" stroke="#1A1A1A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 28 Q30 18 35 28 Q40 38 44 28" stroke="#A83232" stroke-width="1.5" fill="none" stroke-dasharray="3 2"/>
+      </svg>
+      <span class="font-display text-xl">Sartoria Lab</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-8 text-[11px] tracking-[0.2em] uppercase">
+      {links.map(({ href, label }) => (
+        <li><a href={href} class="no-underline hover:text-linha">{label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>
